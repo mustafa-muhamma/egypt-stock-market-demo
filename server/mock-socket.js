@@ -5,7 +5,7 @@ const cors = require("cors");
 
 const app = express();
 app.use(cors({
-  origin: ["https://egypt-stock-market-demo.vercel.app", "http://localhost:3000", 'https://69039e873a8d53286bb5e051--admirable-buttercream-763334.netlify.app'],
+  origin: ["https://egypt-stock-market-demo.vercel.app", "http://localhost:3000", 'https://admirable-buttercream-763334.netlify.app/'],
   methods: ["GET", "POST"],
   credentials: true
 }));
