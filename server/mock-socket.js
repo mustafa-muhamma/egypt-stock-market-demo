@@ -4,7 +4,11 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["https://egypt-stock-market-demo.vercel.app", "http://localhost:3000"],
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: { origin: "*" },
