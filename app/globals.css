@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
+/* Global variables for light/dark theme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-bg: #f8fafc;
+  --color-card: #fff;
+  --color-border: #eee;
+  --color-txt: #232323;
+  --color-green: #16a34a;
+  --color-red: #d90429;
+  --color-hover: #f3f4f6;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme='dark'] {
+  --color-bg: #181a20;
+  --color-card: #20222a;
+  --color-border: #383a40;
+  --color-txt: #eaeaea;
+  --color-green: #16ea94;
+  --color-red: #ff6382;
+  --color-hover: #23242c;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-txt);
+  font-family: 'Cairo', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  transition: background 0.2s, color 0.2s;
+}
+main {
+  padding-bottom: 5rem;
+  min-height: 80vh;
+}
+table {
+  width: 100%;
+  border-radius: 12px;
+  background: var(--color-card);
+  box-shadow: 0 2px 12px 0 #090b0c11;
+  border-collapse: collapse;
+  overflow: hidden;
+  font-size: 1rem;
+  direction: rtl;
+}
+th, td {
+  border-bottom: 1px solid var(--color-border);
+  padding: 1em 0.6em;
+}
+th { background: var(--color-hover); font-weight: bold;}
+tbody tr:last-child td {border-bottom: none;}
+td.green {color: var(--color-green)!important; background: #d7fadd77!important;}
+td.red {color: var(--color-red)!important; background: #fce5e977!important;}
+.card {background: var(--color-card); border-radius:12px; box-shadow:0 1px 8px #090b0c14; padding:1em 1.4em; margin:1em 0;}
+::-webkit-scrollbar { height: 8px; background: #eee; }
+::-webkit-scrollbar-thumb { background: #bbb; border-radius: 8px; }
+
+@media (max-width: 600px) {
+  table, th, td {font-size: 0.91rem;}
+  h1 {font-size: 1.2rem; margin: 0.7em 0 0.25em 0;}
+  main {padding:0.5em 0.4em;}
 }
